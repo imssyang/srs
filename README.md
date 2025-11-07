@@ -63,3 +63,12 @@ H5(HTTP-FLV): http://localhost:8080/live/livestream.flv
 H5(HLS): http://localhost:8080/live/livestream.m3u8
 ```
 
+# Docker
+
+```bash
+CANDIDATE="192.168.1.10"
+docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 -p 1990:1990 -p 8088:8088 \
+    --env CANDIDATE=$CANDIDATE -p 8000:8000/udp \
+    ossrs/srs:v6
+```
+
