@@ -1,4 +1,4 @@
-# srs
+# Compile
 
 ```bash
 $ cd srs-6.0-b3/trunk
@@ -41,5 +41,25 @@ You can:
 $ make install
 $ ln -s /opt/srs/objs/srs /opt/srs/bin/srs
 $ mv /opt/srs/usr/lib/systemd/system/srs.service setup; rm -rf /opt/srs/usr
+```
+
+# Http
+
+```bash
+curl http://localhost:1985/api/v1/
+curl http://localhost:8180/console/ng_index.html
+curl http://localhost:8180/players/srs_player.html
+```
+
+# Stream
+
+```bash
+Publish stream by FFmpeg or OBS :
+ffmpeg -re -i ./doc/source.flv -c copy -f flv rtmp://localhost/live/livestream
+
+Play stream by:
+RTMP (by VLC): rtmp://localhost/live/livestream
+H5(HTTP-FLV): http://localhost:8080/live/livestream.flv
+H5(HLS): http://localhost:8080/live/livestream.m3u8
 ```
 
