@@ -28,6 +28,8 @@ initialize() {
   fi
 
   chown -R $GROUP:$USER /opt/$APP
+  systemctl enable $SERFILE
+  systemctl daemon-reload
 }
 
 deinitialize() {
@@ -41,6 +43,9 @@ deinitialize() {
     groupdel $GROUP
   fi
 
+  systemctl stop $SERFILE
+  systemctl disable $SERFILE
+  systemctl daemon-reload
   chown -R root:root /opt/$APP
 
   if [[ -d /opt/$APP/log ]]; then
