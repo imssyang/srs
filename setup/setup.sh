@@ -43,7 +43,6 @@ deinitialize() {
     groupdel $GROUP
   fi
 
-  systemctl stop $SERFILE
   systemctl disable $SERFILE
   systemctl daemon-reload
   chown -R root:root /opt/$APP
